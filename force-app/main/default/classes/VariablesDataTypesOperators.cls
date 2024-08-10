@@ -32,7 +32,12 @@ public with sharing class VariablesDataTypesOperators {
      * @return The sum of the two numbers, or null if either number is null.
      */
     public static Integer addition(Integer a, Integer b) {  
-        return null; // Replace null with the variable you used to store the result
+        if (a==null || b==null) {
+            return null;
+        }
+        else {
+            return a + b;
+        }
     }
 
     /**
@@ -44,7 +49,7 @@ public with sharing class VariablesDataTypesOperators {
      * @return The difference between the two numbers.
      */
     public static Integer subtraction(Integer a, Integer b) {
-        return null; // Replace null with the variable you used to store the result
+        return (a - b); 
     }
 
     /**
@@ -56,7 +61,7 @@ public with sharing class VariablesDataTypesOperators {
      * @return The product of the two numbers.
      */
     public static Integer multiplication(Integer a, Integer b) {
-        return null; // Replace null with the variable you used to store the result
+        return (a * b);
     }
 
     /**
@@ -69,7 +74,13 @@ public with sharing class VariablesDataTypesOperators {
      * @return The quotient of the division, or 0 if the denominator is zero.
      */
     public static Decimal division(Integer a, Integer b) {
-        return null; // Replace null with the variable you used to store the result
+        if (b==0) {
+            return 0;
+            
+        }
+        else {
+            return (a / b);
+        }
     }
 
     /**
@@ -83,7 +94,13 @@ public with sharing class VariablesDataTypesOperators {
      * @return True if the number is even, False otherwise.
      */
     public static Boolean isEven(Integer num) {
-        return null; // Replace null with the variable you used to store the result
+        Integer remainder = math.mod(num, 2);
+        if (remainder==0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**
@@ -94,7 +111,13 @@ public with sharing class VariablesDataTypesOperators {
      * @return true if the number is positive, false otherwise.
      */
     public static Boolean isPositive(Integer num) {
-        return null; // Replace null with the variable you used to store the result
+        if (num > 0) {
+            return true;
+            
+        }
+        else {
+            return false;
+        }
     }
 
     /**
@@ -106,7 +129,7 @@ public with sharing class VariablesDataTypesOperators {
      * @return The concatenated string.
      */
     public static String concatenateStrings(String str1, String str2) {
-        return null; // Replace null with the variable you used to store the result
+        return str1+str2;
     }
 
 	/**
@@ -121,7 +144,7 @@ public with sharing class VariablesDataTypesOperators {
 	 * @return The complete sentence as a single String.
 	 */
 	public static String createSentence(String noun, String verb, String endingPunctuation) {
-		return null; // Replace null with the variable you used to store the result
+        return 'The'+' '+noun+' '+'is'+' '+verb+endingPunctuation;
 	}
 
     /**
@@ -134,7 +157,19 @@ public with sharing class VariablesDataTypesOperators {
      * @return True if the date is in the past, False otherwise.
      */
     public static Boolean isDateInPast(Date dt) {
-        return null; // Replace null with the variable you used to store the result
+        //date that calls the method
+        Date firstDate = dt;
+        //second date
+        Date secondDate = Date.today();
+        //if date that calls the method (input) occurs after the second date (today), e.g. is in the future, the return value is negative so return false
+        Integer daysBetween =firstDate.daysBetween(secondDate);
+        if (daysBetween<0 || daysBetween==0) {
+            return false;  
+        }
+        else {
+        //If input date is in the past, i would return a positive value, so return true
+        return true;
+        }
     }
 
     /**
@@ -147,7 +182,24 @@ public with sharing class VariablesDataTypesOperators {
      * @return True if the date is today or in the future, False otherwise.
      */
     public static Boolean isDateTodayOrFuture(Date dt) {
-        return null; // Replace null with the variable you used to store the result
+        //date that calls the method
+        Date firstDate = dt;
+        //second date
+        Date secondDate = Date.today();
+        //if date that calls the method (input) occurs after second date (today), e.g. is in the future, the return value is negative. return true.
+        Integer daysBetween =firstDate.daysBetween(secondDate);
+        if (daysBetween<0) {
+            return true;
+            
+        }
+        //if input date is 0 it is same day. return false. 
+        if (daysBetween==0) {
+            return false;
+        }
+        else {
+        //If input date is in the past, returns a positive value. return false.
+        return false;
+        }   
     }
 
     /**
