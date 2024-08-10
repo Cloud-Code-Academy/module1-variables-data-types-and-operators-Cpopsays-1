@@ -75,8 +75,7 @@ public with sharing class VariablesDataTypesOperators {
      */
     public static Decimal division(Integer a, Integer b) {
         if (b==0) {
-            return 0;
-            
+            return 0;   
         }
         else {
             return (a / b);
@@ -113,7 +112,6 @@ public with sharing class VariablesDataTypesOperators {
     public static Boolean isPositive(Integer num) {
         if (num > 0) {
             return true;
-            
         }
         else {
             return false;
@@ -190,7 +188,6 @@ public with sharing class VariablesDataTypesOperators {
         Integer daysBetween =firstDate.daysBetween(secondDate);
         if (daysBetween<0) {
             return true;
-            
         }
         //if input date is 0 it is same day. return false. 
         if (daysBetween==0) {
